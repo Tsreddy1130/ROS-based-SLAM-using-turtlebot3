@@ -1,0 +1,34 @@
+To load the burger robot export the burger as turtlebot3_model 
+
+-->export TURTLEBOT3_MODEL=burger
+
+Next lauch the gazebo world  with  burger robot with in it
+
+--> roslaunch turtlebot3_gazebo turtlebot3_house.launch
+
+For controling the movement of the robot we use teleop key node:
+
+-->roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+
+(#NOTE make sure to export your turtlenot3_model before perfoing any launch)
+
+
+Run SLAM Node:
+run the slam node in the other termial 
+
+-->roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
+
+Now rviz(ros visualization ) tool open for mapping.explore your evironment every space 
+to get cleaar mapping for localization
+
+
+
+After completely exploring the environment save you map using map saver node
+
+-->rosrun map_server map_saver -f ~/map
+
+make sure the file map.yaml file saved in home folder
+
+Run Navigation Node:
+
+-->roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
