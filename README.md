@@ -32,7 +32,9 @@ This project has several practical applications, including:
 ### 1. Export the TurtleBot3 Model
 
 First, export the TurtleBot3 model as `burger`:
-
+```bash
+export TURTLEBOT3_MODEL=burger
+```
 
 ### 2. Launch the Gazebo World
 
