@@ -39,13 +39,19 @@ export TURTLEBOT3_MODEL=burger
 ### 2. Launch the Gazebo World
 
 Next, launch the Gazebo world with the Burger robot in it:
+```bash
+roslaunch turtlebot3_gazebo turtlebot3_house.launch
+```
 
+### 3. Run SLAM Node:
 
-### 3. Control the Robot Movement
+run the slam node in the other termial 
+```bash
+roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
+```
+Now rviz(ros visualization ) tool open for mapping.explore your evironment every space to get cleaar mapping for localization
 
-To control the movement of the robot, use the teleop key node:
-
-### 3. Control the Robot Movement
+### 4. Control the Robot Movement
 
 To control the movement of the robot, use the teleop key node:
 
@@ -57,14 +63,18 @@ RViz (ROS Visualization) tool will open for mapping. Explore your environment th
 
 After completely exploring the environment, save your map using the map saver node:
 
-
+```bash
+rosrun map_server map_saver -f ~/map
+```
 Ensure the `map.yaml` file is saved in your home folder.
 
 ### 7. Run the Navigation Node
 
 Finally, run the navigation node with the saved map:
 
-
+```bash
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
+```
 ## Conclusion
 
 By following these steps, you will be able to set up, control, and navigate your TurtleBot3 Burger robot in a simulated environment using ROS and Gazebo. This project not only enhances your understanding of robotics but also provides practical skills in autonomous navigation and SLAM. Happy robotics!
